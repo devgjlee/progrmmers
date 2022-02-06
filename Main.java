@@ -3,11 +3,11 @@ package programmers_lv2;
 import java.util.*;
 
 public class Main {
-	// static ArrayList<> arr = new ArrayList<>(); //Àü¿ªº¯¼ö
+	// static ArrayList<> arr = new ArrayList<>(); //ì „ì—­ë³€ìˆ˜
 	static HashSet<Integer> hs = new HashSet<Integer>();
 
 	public static void main(String[] args) {
-		String numbers = "8118";
+		String numbers = "0012";
 		int answer = solution(numbers);
 		System.out.println("answer = " + answer);
 
@@ -15,14 +15,14 @@ public class Main {
 
 	public static int solution(String numbers) {
 		int answer = 0;
-		// StringÀ» int¹è¿­·Î º¯È¯ÇÏÀÚ.
+		// Stringì„ intë°°ì—´ë¡œ ë³€í™˜í•˜ì.
 		int[] num = new int[numbers.length()];
 		for (int i = 0; i < num.length; i++) {
 			num[i] = numbers.charAt(i) - '0';
 			// System.out.println("num[" + i + "] = " + num[i]);
 		}
 
-		// ¼ø¿­ ¾Ë°í¸®ÁòÀ¸·Î ¼ıÀÚ »Ì±â
+		// ìˆœì—´ ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ ìˆ«ì ë½‘ê¸°
 		int n = num.length;
 
 		for (int i = 1; i <= n; i++) {
@@ -37,7 +37,7 @@ public class Main {
 			boolean flag = true;
 			int isprimeNum = it.next();
 			System.out.println("str = " + isprimeNum);
-			if (isprimeNum== 0 || isprimeNum == 1 || isprimeNum == 2) {
+			if (isprimeNum <= 1) {
 				//System.out.println("continue");
 				flag = false;
 				continue;
@@ -49,7 +49,10 @@ public class Main {
 					}
 				}
 			}
-			if(flag) answer++;
+			if(flag) {
+				answer++;
+				System.out.println("answer++");
+			}
 		}
 	
 
@@ -69,7 +72,7 @@ public class Main {
 		}
 		for (int i = 0; i < n; i++) {
 			if (perCheck[i] == 0) {
-				perArr.add(arr[i]); // °ªÀ» ³Ö´Â ºÎºĞ
+				perArr.add(arr[i]); // ê°’ì„ ë„£ëŠ” ë¶€ë¶„
 				perCheck[i] = 1;
 				permutation(n, r, perArr, perCheck, arr);
 				perCheck[i] = 0;
